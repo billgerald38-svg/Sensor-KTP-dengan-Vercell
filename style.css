@@ -1,0 +1,22 @@
+/* Styling teks label pada garis panduan kamera */
+.guide-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    letter-spacing: 0.03em;
+    user-select: none;
+}
+
+/* Penyesuaian ukuran font pada layar HP kecil */
+@media (max-width: 480px) {
+    .guide-label {
+        font-size: 0.55rem;
+    }
+}
+
+/* Memastikan area cropper tidak meluber */
+.cropper-container {
+    width: 100% !important;
+    height: 100% !important;
+}
