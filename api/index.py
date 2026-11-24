@@ -12,12 +12,12 @@ app = Flask(__name__, template_folder=TEMPLATE_DIR)
 
 # Standard Indonesian e-KTP coordinates in percentages (x, y, width, height)
 KTP_COORDINATES = {
-    'nik':    (0.24, 0.18, 0.45, 0.08),
-    'nama':   (0.26, 0.28, 0.43, 0.06),
-    'ttl':    (0.26, 0.34, 0.43, 0.06),
-    'alamat': (0.26, 0.46, 0.43, 0.18),
-    'foto':   (0.71, 0.20, 0.25, 0.48),
-    'ttd':    (0.73, 0.76, 0.21, 0.15)
+    'nik':    (0.24, 0.165, 0.45, 0.055),
+    'nama':   (0.26, 0.235, 0.43, 0.042),
+    'ttl':    (0.26, 0.282, 0.43, 0.042),
+    'alamat': (0.26, 0.380, 0.43, 0.165),
+    'foto':   (0.71, 0.180, 0.25, 0.460),
+    'ttd':    (0.70, 0.670, 0.27, 0.260)
 }
 
 def get_safe_font(size=22):
