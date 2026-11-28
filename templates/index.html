@@ -302,13 +302,26 @@
 
                 cropperInstance = new Cropper(imageToCrop, {
                     aspectRatio: 1.586 / 1,
-                    viewMode: 0,
+                    viewMode: 1,
                     dragMode: 'move',
                     rotatable: true,
-                    autoCropArea: 1,
+                    autoCropArea: 1.0,
+                    restore: false,
+                    guides: false,
+                    center: false,
+                    highlight: false,
                     cropBoxMovable: false,
                     cropBoxResizable: false,
                     toggleDragModeOnDblclick: false,
+                    ready() {
+                        const containerData = cropperInstance.getContainerData();
+                        cropperInstance.setCropBoxData({
+                            left: 0,
+                            top: 0,
+                            width: containerData.width,
+                            height: containerData.height
+                        });
+                    }
                 });
             };
             reader.readAsDataURL(file);
@@ -432,7 +445,17 @@
         }
 
         window.addEventListener('DOMContentLoaded', startCamera);
-
+        function lockFullCropBox() {
+            if (!cropperInstance) return;
+            const containerData = cropperInstance.getContainerData();
+            cropperInstance.setCropBoxData({
+                left: 0,
+                top: 0,
+                width: containerData.width,
+                height: containerData.height
+            });
+        }
+        
         document.getElementById('btn-rotate-left').addEventListener('click', () => {
             if (cropperInstance) cropperInstance.rotate(-90);
         });
