@@ -117,7 +117,17 @@
             </div>
             <!-- CONTAINER 2: UPLOAD & CROPPER -->
             <div id="upload-container" class="hidden w-full max-w-2xl mx-auto">
-                <p class="text-xs text-slate-600 mb-2">Geser dan perbesar (zoom) foto KTP Anda agar pas dengan garis panduan:</p>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <p class="text-xs text-slate-600">Geser, zoom, atau putar foto KTP agar pas dengan garis panduan:</p>
+                    <div class="flex items-center gap-1.5">
+                        <button type="button" id="btn-rotate-left" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold rounded shadow-sm transition">
+                            ↺ Putar Kiri 90°
+                        </button>
+                        <button type="button" id="btn-rotate-right" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold rounded shadow-sm transition">
+                            ↻ Putar Kanan 90°
+                        </button>
+                    </div>
+                </div>
                 <div class="relative w-full aspect-[1.586/1] bg-slate-900 rounded-lg overflow-hidden">
                     <img id="image-to-crop" src="" alt="Preview Upload" class="max-w-full block">
                     <div id="cropper-guide-clone" class="absolute inset-0 pointer-events-none z-10"></div>
