@@ -13,8 +13,8 @@ app = Flask(__name__, template_folder=TEMPLATE_DIR)
 # Standard Indonesian e-KTP coordinates in percentages (x, y, width, height)
 KTP_COORDINATES = {
     'nik':    (0.24, 0.165, 0.45, 0.055),
-    'nama':   (0.26, 0.235, 0.43, 0.042),
-    'ttl':    (0.26, 0.282, 0.43, 0.042),
+    'nama':   (0.22, 0.235, 0.47, 0.042),  # Diperlebar ke kiri (x=0.22, w=0.47)
+    'ttl':    (0.22, 0.282, 0.47, 0.042),  # Diperlebar ke kiri (x=0.22, w=0.47)
     'alamat': (0.26, 0.380, 0.43, 0.165),
     'foto':   (0.71, 0.180, 0.25, 0.460),
     'ttd':    (0.70, 0.670, 0.27, 0.260)
