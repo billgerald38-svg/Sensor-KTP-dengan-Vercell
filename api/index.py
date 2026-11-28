@@ -65,6 +65,7 @@ def proses_ktp():
                     draw.rectangle([x1, y1, x2, y2], fill=(0, 0, 0, 255))
 
         # 3. Apply Diagonal Watermark
+ # 3. Apply Subtle Watermark (Tidak menutupi data penting KTP)
         if watermark_text:
             txt_layer = Image.new("RGBA", img.size, (255, 255, 255, 0))
             txt_draw = ImageDraw.Draw(txt_layer)
@@ -73,7 +74,7 @@ def proses_ktp():
             lines = []
             current_line = ''
             for word in words:
-                if len(current_line + word) > 38:
+                if len(current_line + word) > 42:
                     lines.append(current_line.strip())
                     current_line = word + ' '
                 else:
@@ -81,22 +82,25 @@ def proses_ktp():
             if current_line:
                 lines.append(current_line.strip())
 
-            font = get_safe_font(size=22)
+            # Ukuran font menyesuaikan lebar gambar agar tidak memakan ruang berlebih
+            font_size = max(14, int(width * 0.022))
+            font = get_safe_font(size=font_size)
 
-            y_offsets = [int(height * 0.2), int(height * 0.45), int(height * 0.7)]
+            # Ditempatkan tipis di area atas-tengah dan bawah-kiri agar data utama tetap terbaca
+            y_offsets = [int(height * 0.12), int(height * 0.78)]
             for start_y in y_offsets:
                 for idx, line in enumerate(lines):
-                    y_pos = start_y + (idx * 26)
+                    y_pos = start_y + (idx * (font_size + 4))
                     txt_draw.text(
-                        (int(width * 0.12), y_pos),
+                        (int(width * 0.18), y_pos),
                         line,
                         font=font,
-                        fill=(255, 255, 255, 160),
-                        stroke_width=2,
-                        stroke_fill=(0, 0, 0, 120)
+                        fill=(255, 255, 255, 85),       # Semi-transparan halus
+                        stroke_width=1,
+                        stroke_fill=(0, 0, 0, 75)      # Outline tipis agar terbaca tanpa memblok teks
                     )
 
-            rotated_txt = txt_layer.rotate(15, resample=Image.BICUBIC, expand=False)
+            rotated_txt = txt_layer.rotate(10, resample=Image.BICUBIC, expand=False)
             img = Image.alpha_composite(img, rotated_txt)
 
         # 4. Return processed JPEG

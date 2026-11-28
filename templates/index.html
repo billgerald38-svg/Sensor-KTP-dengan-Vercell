@@ -302,8 +302,9 @@
 
                 cropperInstance = new Cropper(imageToCrop, {
                     aspectRatio: 1.586 / 1,
-                    viewMode: 1,
+                    viewMode: 0,
                     dragMode: 'move',
+                    rotatable: true,
                     autoCropArea: 1,
                     cropBoxMovable: false,
                     cropBoxResizable: false,
@@ -370,7 +371,6 @@
                 watermark: watermarkInput.value,
                 mode: censorModeSelect.value
             };
-
             try {
                 const response = await fetch('/proses-ktp', {
                     method: 'POST',
@@ -432,12 +432,13 @@
         }
 
         window.addEventListener('DOMContentLoaded', startCamera);
+
         document.getElementById('btn-rotate-left').addEventListener('click', () => {
-            if (cropper) cropper.rotate(-90);
+            if (cropperInstance) cropperInstance.rotate(-90);
         });
 
         document.getElementById('btn-rotate-right').addEventListener('click', () => {
-            if (cropper) cropper.rotate(90);
+            if (cropperInstance) cropperInstance.rotate(90);
         });
     </script>
 </body>
