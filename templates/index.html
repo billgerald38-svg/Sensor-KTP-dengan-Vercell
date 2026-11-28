@@ -432,6 +432,13 @@
         }
 
         window.addEventListener('DOMContentLoaded', startCamera);
+        document.getElementById('btn-rotate-left').addEventListener('click', () => {
+            if (cropper) cropper.rotate(-90);
+        });
+
+        document.getElementById('btn-rotate-right').addEventListener('click', () => {
+            if (cropper) cropper.rotate(90);
+        });
     </script>
 </body>
 </html>
