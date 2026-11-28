@@ -61,48 +61,60 @@
                 <video id="video-feed" autoplay playsinline class="w-full h-full object-cover"></video>
                 
                 <!-- OVERLAY GARIS PANDUAN E-KTP INDONESIA -->
-                <div id="ktp-guide-overlay" class="absolute inset-0 pointer-events-none p-[3%] flex flex-col justify-between border-2 border-emerald-400/80 select-none">
+<!-- OVERLAY GARIS PANDUAN E-KTP INDONESIA (TERKALIBRASI & TIPIS) -->
+                <div id="ktp-guide-overlay" class="absolute inset-0 pointer-events-none p-[1.5%] flex flex-col gap-[1.5%] border border-emerald-400/80 select-none leading-none">
                     
-                    <!-- Header Provinsi -->
-                    <div class="w-full h-[14%] border border-dashed border-yellow-300/80 bg-yellow-300/10 rounded flex items-center justify-center">
-                        <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">PROVINSI / KABUPATEN</span>
+                    <!-- Header Provinsi (Lebih Tipis) -->
+                    <div class="w-full h-[11%] border border-dashed border-yellow-300/80 bg-yellow-300/10 rounded-sm flex items-center justify-center">
+                        <span class="text-[8px] sm:text-[10px] font-semibold text-white tracking-wider drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">PROVINSI / KABUPATEN</span>
                     </div>
 
-                    <!-- Tengah & Bawah -->
-                    <div class="w-full h-[82%] flex justify-between gap-[3%]">
-                        <!-- Kolom Kiri -->
-                        <div class="w-[68%] h-full flex flex-col justify-between">
-                            <div class="w-full h-[14%] border border-dashed border-cyan-300 bg-cyan-300/15 rounded flex items-center px-2">
-                                <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">NIK (16 Digit)</span>
+                    <!-- Area Utama (Kiri & Kanan) -->
+                    <div class="w-full h-[87.5%] flex justify-between gap-[2%]">
+                        
+                        <!-- Kolom Kiri: Data Teks (Rapat sesuai e-KTP asli) -->
+                        <div class="w-[68%] h-full flex flex-col gap-[1.2%]">
+                            <!-- NIK -->
+                            <div class="w-full h-[8%] border border-dashed border-cyan-300 bg-cyan-300/15 rounded-sm flex items-center px-1.5">
+                                <span class="text-[8px] sm:text-[10px] font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">NIK (16 Digit)</span>
                             </div>
-                            <div class="w-full h-[12%] border border-dashed border-white/70 bg-white/10 rounded flex items-center px-2">
-                                <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Nama Lengkap</span>
+                            <!-- Nama -->
+                            <div class="w-full h-[6.5%] border border-dashed border-white/75 bg-white/10 rounded-sm flex items-center px-1.5">
+                                <span class="text-[8px] sm:text-[10px] font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">Nama Lengkap</span>
                             </div>
-                            <div class="w-full h-[12%] border border-dashed border-white/70 bg-white/10 rounded flex items-center px-2">
-                                <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Tempat / Tgl Lahir</span>
+                            <!-- Tempat / Tgl Lahir -->
+                            <div class="w-full h-[6.5%] border border-dashed border-white/75 bg-white/10 rounded-sm flex items-center px-1.5">
+                                <span class="text-[8px] sm:text-[10px] font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">Tempat / Tgl Lahir</span>
                             </div>
-                            <div class="w-full h-[32%] border border-dashed border-white/70 bg-white/10 rounded flex items-center px-2">
-                                <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Alamat, RT/RW, Kel/Desa, Kec</span>
+                            <!-- Jenis Kelamin & Gol Darah (Spacer tipis agar Alamat sejajar 0.380) -->
+                            <div class="w-full h-[6%] flex items-center px-1.5">
+                                <span class="text-[7px] sm:text-[9px] text-white/60 drop-shadow-[0_1px_1px_rgba(0,0,0,0.9)]">Jenis Kelamin</span>
                             </div>
-                            <div class="w-full h-[22%] border border-dashed border-white/50 rounded flex items-center px-2">
-                                <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Agama, Status, Pekerjaan</span>
+                            <!-- Alamat (Lebih Ringkas) -->
+                            <div class="w-full h-[21%] border border-dashed border-white/75 bg-white/10 rounded-sm flex items-center px-1.5">
+                                <span class="text-[8px] sm:text-[10px] font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">Alamat, RT/RW, Kel/Desa, Kec</span>
+                            </div>
+                            <!-- Agama, Status, Pekerjaan, Kewarganegaraan -->
+                            <div class="w-full flex-1 border border-dashed border-white/40 rounded-sm flex items-center px-1.5">
+                                <span class="text-[8px] sm:text-[9px] text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">Agama, Status, Pekerjaan, Berlaku</span>
                             </div>
                         </div>
 
-                        <!-- Kolom Kanan (Pas Foto & TTD) -->
-                        <div class="w-[29%] h-full flex flex-col justify-between items-center">
-                            <div class="w-full h-[65%] border-2 border-dashed border-rose-400 bg-rose-400/15 rounded flex flex-col items-center justify-center text-center p-1">
-                                <span class="text-[10px] sm:text-xs font-bold text-rose-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">PAS FOTO</span>
-                                <span class="text-[9px] text-white/90 leading-tight mt-1 drop-shadow">Posisikan wajah di dalam kotak</span>
+                        <!-- Kolom Kanan: Pas Foto & TTD (TTD Lebih Tinggi) -->
+                        <div class="w-[30%] h-full flex flex-col justify-between gap-[2%]">
+                            <!-- Pas Foto -->
+                            <div class="w-full h-[62%] border border-dashed border-rose-400 bg-rose-400/15 rounded-sm flex flex-col items-center justify-center text-center p-1">
+                                <span class="text-[9px] sm:text-[11px] font-bold text-rose-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">PAS FOTO</span>
+                                <span class="text-[7px] sm:text-[8px] text-white/90 leading-tight mt-0.5 drop-shadow">Wajah di dalam kotak</span>
                             </div>
-                            <div class="w-full h-[30%] border border-dashed border-white/70 bg-white/10 rounded flex items-center justify-center text-center p-1">
-                                <span class="text-[10px] sm:text-xs font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Tgl Terbit & TTD</span>
+                            <!-- Tanggal Terbit & TTD (Dipertinggi agar muat kota + tanggal + TTD) -->
+                            <div class="w-full h-[36%] border border-dashed border-white/80 bg-white/10 rounded-sm flex items-center justify-center text-center p-1">
+                                <span class="text-[8px] sm:text-[10px] font-semibold text-white leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)]">Kota, Tgl Terbit<br>&amp; TTD</span>
                             </div>
                         </div>
+
                     </div>
                 </div>
-            </div>
-
             <!-- CONTAINER 2: UPLOAD & CROPPER -->
             <div id="upload-container" class="hidden w-full max-w-2xl mx-auto">
                 <p class="text-xs text-slate-600 mb-2">Geser dan perbesar (zoom) foto KTP Anda agar pas dengan garis panduan:</p>
